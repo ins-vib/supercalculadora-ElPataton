@@ -52,15 +52,13 @@ public class Calculadora {
     
     }
 
-    /**
-     * Calcula el nombre de dígits d’un número enter.
-     * Funciona tant per a nombres positius com negatius.
-     * Si el nombre és 0, retorna 1.
-     *
-     * @param nombre Número del qual es vol saber el nombre de dígits
-     * @return Quantitat de dígits que té {@code nombre}
-     */
     
+    /**
+     * Menú per escollir l'opció de la calculadora, cada numero es una funció
+     * Si es prem un numero que no te funció et torna a sortir el menu
+     * Si es prem 0 es surt del programa
+     *
+     */
     public static void mostrarMenuConsola(){
         Scanner lectura = new Scanner(System.in);
         int opcio = 1;
@@ -126,6 +124,8 @@ public class Calculadora {
                     boolean x = false;
                     char capdesetmana;
                     char carnetJove;
+                    System.out.println("Quin es el preu base de la entrada?");
+                    n = lectura.nextInt();
                     System.out.println("Es cap de setmana? S/N");
                     capdesetmana = lectura.next().charAt(0);
                     System.out.println("Tens carnet jove? S/N");
@@ -151,7 +151,14 @@ public class Calculadora {
         }
     }
 
-
+/**
+     * Calcula el nombre de dígits d’un número enter.
+     * Funciona tant per a nombres positius com negatius.
+     * Si el nombre és 0, retorna 1.
+     *
+     * @param nombre Número del qual es vol saber el nombre de dígits
+     * @return Quantitat de dígits que té {@code nombre}
+     */
 public static int nombreDigits(int nombre) {
     if (nombre == 0) {
         return 1; // el 0 té un dígit
@@ -163,6 +170,12 @@ public static int nombreDigits(int nombre) {
     }
     return comptador;
 }
+/**
+     * Suma tots els numeros fins al numero aportat.
+     *
+     * @param n Ultím numero de la seqüencia de sumes
+     * @return La suma total de tots els numeros {@code suma}
+     */
 
     public static int sumaPrimersNumeros(int n) { 
     int suma = 0;
@@ -172,54 +185,84 @@ public static int nombreDigits(int nombre) {
     return suma;
 }
 
-public static int calcularFactorial(int n){
-    int factorial = 1;
-    for (int i = 1; i <=n; i++){
-        factorial = factorial * i;
-    }
-    return factorial;
-}
-
-public static int sumaQuadrats(int n){
-    int quadrat = 0;
-    for(int i = 0; i <=n; i++){
-        quadrat = quadrat + (i*i);
-    }
-
-    return quadrat;
-}
-public static int calcularPotencia(int base, int exponent){
-    int resultat = base;
-    for (int i=1;i < exponent; i++){
-        resultat *=  base ;
-    }
-
-    return resultat;
-}
-
-public static int numcares(int vegades) {
-    int randomnum = 0;
-    int cara = 0;
-    Random generator = new Random();
-    for (int i = 0; i < vegades ; i++){
-        randomnum = generator.nextInt(0,2);
-        if (randomnum == 0){
-            cara++;
+    /**
+         * Retorna el factorial de cert numero.
+         * @param n Número del qual es vol saber factorial
+         * @return Resultat del factorial {@code factorial}
+         */
+    public static int calcularFactorial(int n){
+        int factorial = 1;
+        for (int i = 1; i <=n; i++){
+            factorial = factorial * i;
         }
+        return factorial;
     }
-    return cara;
-    
-} 
 
-public static double Cinema(double preu, boolean capdesetmana, boolean carnetjove) {        
-    if(capdesetmana == true) {
-        preu = preu + (preu * 0.10);
+    /**
+         * Suma tots els numeros cuadrats fins al numero aportat.
+         * @param n Ultím numero de la seqüencia de sumes
+         * @return Resultat final de la suma {@code quadrat}
+         */
+    public static int sumaQuadrats(int n){
+        int quadrat = 0;
+        for(int i = 0; i <=n; i++){
+            quadrat = quadrat + (i*i);
+        }
+
+        return quadrat;
     }
-    if (carnetjove == true){
-        preu = preu - (preu * 0.15);
+
+    /**
+         * Retorna el resultat de la base elevada al exponent.
+         * @param base La base per la qual multiplicarem
+         * @param exponent El numero de vegades que multiplicarem la base
+         * @return Resultat final de les multiplicacions {@code resultat}
+         */
+    public static int calcularPotencia(int base, int exponent){
+        int resultat = base;
+        for (int i=1;i < exponent; i++){
+            resultat *=  base ;
+        }
+
+        return resultat;
     }
-    return preu;
-}    
+
+
+    /**
+         * Retorna el numero de vegades que una moneda cau en cara.
+         * @param vegades El numero de vegades que es llança la moneda
+         * @return Resultat de quantes cares han caigut {@code cara}
+         */
+    public static int numcares(int vegades) {
+        int randomnum = 0;
+        int cara = 0;
+        Random generator = new Random();
+        for (int i = 0; i < vegades ; i++){
+            randomnum = generator.nextInt(0,2);
+            if (randomnum == 0){
+                cara++;
+            }
+        }
+        return cara;
+        
+    } 
+
+    /**
+         * Calcula el preu de anar al cinema amb certs descomptes
+         * @param preu El preu base de la entrada al cinema
+         * @param capdesetmana Si es cap de setmana et dona un descompte
+         * @param carnetjove Si tens carnet jove et dona un altre descompte
+         * @return Resultat final del cost de la entrada {@code preu}
+         */
+    public static double Cinema(double preu, boolean capdesetmana, boolean carnetjove) {        
+        if(capdesetmana == true) {
+            preu = preu + (preu * 0.10);
+        }
+        if (carnetjove == true){
+            preu = preu - (preu * 0.15);
+        }
+        return preu;
+    }    
 
 
 }
