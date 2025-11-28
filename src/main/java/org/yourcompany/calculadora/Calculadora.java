@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Calculadora {
 
     public static void main(String[] args) {
-        mostrarMenuConsola();
+        // mostrarMenuConsola();
         // Exemples de crida per al mètode nombreDigits
         // System.out.println("Nombre de dígits de 1234: " + nombreDigits(1234));
         // System.out.println("Nombre de dígits de 56789: " + nombreDigits(56789));
@@ -45,9 +45,9 @@ public class Calculadora {
         // System.out.println("Numero de cares al tirar 1000 monedes " + numcares(1000));
 
         //Cinema
-        // System.out.println("Si vas al cine amb preu base 5€ al cap de setmana amb carnet jove " + Cinema(5, true, true) + " €");
-        // System.out.println("Si vas al cine amb preu base 15€ entre setmana amb carnet jove " + Cinema(15, false, true) + " €");
-        // System.out.println("Si vas al cine amb preu base 55€ al cap de setmana sense carnet jove " + Cinema(55, true, false) + " €");
+        System.out.println("Si vas al cine amb preu base 5€ al cap de setmana amb carnet jove " + Cinema(5, true, true) + " €");
+        System.out.println("Si vas al cine amb preu base 15€ entre setmana amb carnet jove " + Cinema(15, false, true) + " €");
+        System.out.println("Si vas al cine amb preu base 55€ al cap de setmana sense carnet jove " + Cinema(55, true, false) + " €");
     
     
     }
